@@ -1,0 +1,37 @@
+#https://programmers.co.kr/learn/courses/30/lessons/42585
+def solution(arrangement):
+    a = arrangement.replace('()','v')
+    firstcut,bar,answer = 0,0,0
+    for i in a:
+        if i=='(':
+            firstcut+=1
+            bar+=1
+        elif i=='v':
+            answer = answer+firstcut+bar
+            firstcut=0
+        elif i==')':
+            bar-=1
+            if firstcut >0 :
+                firstcut-=1
+    return answer
+'''
+잘 푼것 같았지만..
+다른 사람의 풀이
+def solution(arrangement):
+    answer = 0
+    sticks = 0
+    rasor_to_zero = arrangement.replace('()','0')
+    for i in rasor_to_zero:
+        if i == '(':
+            sticks += 1
+        elif i =='0' :
+            answer += sticks
+        else :
+            sticks -= 1
+            answer += 1
+    return answer
+거의 비슷하게 풀긴 했지만 else 부분에서
+생각해보니 (와) 개수가 동일하다는 조건이 주어졌기 때문에
+굳이 처음 자르는 것으로 자르는 것 보단 저렇게 닫힌괄호일 때 하나 추가해 주는게
+맞는 것 같다
+'''
