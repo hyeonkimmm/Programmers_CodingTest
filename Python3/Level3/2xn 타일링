@@ -1,0 +1,9 @@
+#https://programmers.co.kr/learn/courses/30/lessons/12900
+def solution(n):
+    a,b =1,2
+    for i in range(n-1):
+        a,b = b, a+b
+    return a%1000000007
+'''
+생각해보니 피보나치와 똑같아서 이렇게 풀었다
+'''
